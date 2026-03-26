@@ -1,8 +1,29 @@
+import { supabase } from "../lib/supabase";
 import { useState } from "react";
 
 export default function Home() {
-  const [modal, setModal] = useState(false);
-  const [type, setType] = useState("login");
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+
+const handleAuth = async () => {
+  if (type === "signup") {
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+    });
+
+    if (error) return alert(error.message);
+    alert("Conta criada!");
+  } else {
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) return alert(error.message);
+    alert("Login feito!");
+  }
+};
 
   const openModal = (t) => {
     setType(t);
