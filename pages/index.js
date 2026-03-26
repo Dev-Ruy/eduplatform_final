@@ -144,7 +144,9 @@ const handleAuth = async () => {
             <h2>{type === "login" ? "Login" : "Cadastro"}</h2>
             <input placeholder="Email" style={{ width:"100%", marginBottom:10, padding:10 }} />
             <input type="password" placeholder="Senha" style={{ width:"100%", marginBottom:10, padding:10 }} />
-            <button className="btn btn-primary" style={{ width:"100%" }}>Entrar</button>
+            <button className="btn btn-primary" onClick={handleAuth}>
+  {type === "login" ? "Entrar" : "Cadastrar"}
+</button>
             <button onClick={closeModal} style={{ marginTop:10 }}>Fechar</button>
           </div>
         </div>
