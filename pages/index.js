@@ -3,69 +3,73 @@ import Link from "next/link";
 
 export default function Home() {
   const courses = [
-    {
-      id: 1,
-      title: "JavaScript Moderno",
-      image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159",
-    },
-    {
-      id: 2,
-      title: "UX/UI Design",
-      image: "https://images.unsplash.com/photo-1559028012-481c04fa702d",
-    },
-    {
-      id: 3,
-      title: "Marketing Digital",
-      image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312",
-    },
+    { id: 1, title: "JavaScript Moderno", image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159" },
+    { id: 2, title: "UX/UI Design", image: "https://images.unsplash.com/photo-1559028012-481c04fa702d" },
+    { id: 3, title: "Marketing Digital", image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312" },
+    { id: 4, title: "React Avançado", image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee" }
   ];
 
   return (
     <div className="bg-black text-white min-h-screen">
       {/* Header */}
-      <div className="flex justify-between items-center px-8 py-4">
-        <h1 className="text-red-600 text-2xl font-bold">EduFlix</h1>
-        <div className="space-x-4">
+      <div className="flex justify-between items-center px-16 py-6 backdrop-blur-md bg-black/40 fixed w-full z-50">
+        <h1 className="text-red-600 text-3xl font-bold">EduFlix</h1>
+        <div className="space-x-6 text-lg">
           <Link href="/login">Login</Link>
           <Link href="/admin">Admin</Link>
         </div>
       </div>
 
-      {/* Hero Banner */}
+      {/* Hero */}
       <div
-        className="h-[60vh] flex flex-col justify-center px-10 bg-cover bg-center"
+        className="h-[80vh] flex flex-col justify-center px-24 bg-cover bg-center relative"
         style={{
           backgroundImage:
             "url(https://images.unsplash.com/photo-1498050108023-c5249f4df085)",
         }}
       >
-        <h2 className="text-4xl font-bold mb-4">
-          Domine habilidades que mudam sua vida
-        </h2>
-        <p className="mb-4 max-w-xl">
-          Aprenda programação, design e marketing com cursos práticos
-        </p>
-        <button className="bg-red-600 px-6 py-2 rounded-md w-40">
-          Começar
-        </button>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+
+        <div className="relative max-w-2xl space-y-6">
+          <h2 className="text-5xl font-bold leading-tight">
+            Domine habilidades que mudam sua vida
+          </h2>
+          <p className="text-lg text-gray-300">
+            Aprenda programação, design e marketing com cursos práticos e modernos
+          </p>
+
+          <div className="flex gap-4">
+            <button className="bg-red-600 px-8 py-3 rounded-xl text-lg hover:scale-105 transition">
+              ▶ Começar
+            </button>
+            <button className="bg-white/20 px-8 py-3 rounded-xl backdrop-blur hover:scale-105 transition">
+              ℹ Mais Info
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Courses Row */}
-      <div className="px-8 mt-8">
-        <h3 className="text-xl mb-4">Cursos em destaque</h3>
-        <div className="flex gap-4 overflow-x-auto">
-          {courses.map((course) => (
-            <div
-              key={course.id}
-              className="min-w-[250px] cursor-pointer transform hover:scale-105 transition"
-            >
-              <img
-                src={course.image}
-                className="rounded-lg h-40 w-full object-cover"
-              />
-              <p className="mt-2 text-sm">{course.title}</p>
-            </div>
-          ))}
+      {/* Content */}
+      <div className="px-20 -mt-20 space-y-12">
+        {/* Row */}
+        <div>
+          <h3 className="text-2xl mb-6">Cursos em destaque</h3>
+          <div className="flex gap-6 overflow-x-auto pb-4">
+            {courses.map((course) => (
+              <div
+                key={course.id}
+                className="min-w-[300px] rounded-2xl overflow-hidden bg-zinc-900 shadow-2xl hover:scale-110 hover:z-10 transition duration-300 cursor-pointer"
+              >
+                <img
+                  src={course.image}
+                  className="h-48 w-full object-cover"
+                />
+                <div className="p-4">
+                  <p className="text-lg font-semibold">{course.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
