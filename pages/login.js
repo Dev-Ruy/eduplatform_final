@@ -22,3 +22,7 @@ export default function Login() {
     </div>
   )
 }
+const login = async () => {
+  const res = await supabase.auth.signInWithOtp({ email })
+  console.log(res)
+}
