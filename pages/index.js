@@ -19,7 +19,20 @@ const handleAuth = async () => {
       email,
       password,
     });
+<input
+  placeholder="Email"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  style={{ width: "100%", marginBottom: 10, padding: 10 }}
+/>
 
+<input
+  type="password"
+  placeholder="Senha"
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+  style={{ width: "100%", marginBottom: 10, padding: 10 }}
+/>
     if (error) return alert(error.message);
     alert("Login feito!");
   }
