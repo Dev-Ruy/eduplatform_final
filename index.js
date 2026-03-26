@@ -1,0 +1,10 @@
+import Link from 'next/link'
+export default function Home(){
+  return (
+    <div style={{padding:20}}>
+      <h1>EduPlatform FINAL 💰</h1>
+      <Link href="/login">Login</Link><br/>
+      <Link href="/admin">Admin</Link>
+    </div>
+  )
+}
